@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/output.css">
     <title>My Portpolio</title>
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.remove('dark')
+            }
+    </script>
 </head>
 <body>
     <!-- Header Start -->
@@ -23,25 +30,37 @@
                     </button>
                     <!-- Menu start -->
                     <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-xl lg:shadow-none lg:rounded-none lg:w-full rounded-xl max-w-[250px] w-1/2 right-4 top-14 border-t-4
-                    lg:block lg:static lg:bg-transparent lg:max-w-full">
+                    lg:block lg:static lg:bg-transparent lg:max-w-full dark:bg-dark dark:shadow-slate-500 lg:dark:bg-transparent">
                         <ul class="block lg:flex">
                             <li class="group">
-                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary" href="#home">Home</a>
+                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white" href="#home">Home</a>
                             </li>
                             <li class="group">
-                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary" href="#about">About Me</a>
+                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white" href="#about">About Me</a>
                             </li>
                             <li class="group">
-                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary" href="#project">My Projects</a>
+                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white" href="#project">My Projects</a>
                             </li>
                             <li class="group">
-                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary" href="#client">Clients</a>
+                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white" href="#client">Clients</a>
                             </li>
                             <li class="group">
-                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary" href="#blog">My Blogs</a>
+                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white" href="#blog">My Blogs</a>
                             </li>
                             <li class="group">
-                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary" href="#contact">Contact Me</a>
+                                <a class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white" href="#contact">Contact Me</a>
+                            </li>
+                            <li class=" mt-3 lg:mt-0 flex items-center pl-8">
+                                <div class="flex">
+                                    <span class="mr-2 text-sm text-slate-500">Light</span>
+                                    <input type="checkbox" class="hidden" name="dark-toggle" id="dark-toggle">
+                                    <label for="dark-toggle">
+                                        <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+                                            <div class="toggle-circle h-4 w-4 rounded-full bg-white duration-500 ease-in-out"></div>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-sm text-slate-500">Dark</span>
+                                </div>
                             </li>
                         </ul>
                     </nav>
@@ -53,23 +72,23 @@
     <!-- Header End -->
 
     <!-- hero start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <!-- kiri start -->
-                <div class="w-full self-center px-6  lg:px-16 lg:w-1/2">
-                    <h1 class="text-base font-semibold text-primary md:text-xl lg:text-2xl">Hello semua 👋  My name is <span class="block font-bold text-dark text-3xl mt-1 lg:text-5xl ">Murtaki Shihab</span></h1>
-                    <h2 class="font-medium text-secondary mb-5">Web Developer <strong class="text-dark font-bold">&</strong> <span class="text-dark">Web Designer</span></h2>
-                    <p class="mb-10 font-medium text-slate-400 leading-relaxed">I'am beginner web developer, <span class="text-dark font-bold">let's join with me !</span> </p>
+                <div class="w-full self-center px-6  lg:px-16 lg:w-1/2 mb-11">
+                    <h1 class="text-base font-semibold text-primary md:text-xl lg:text-2xl">Hello semua <span>👋</span>  My name is <span class="block font-bold text-dark text-3xl mt-1 lg:text-5xl dark:text-white ">Murtaki Shihab</span></h1>
+                    <h2 class="font-medium text-secondary mb-5">Web Developer <strong class="text-dark font-bold dark:text-white">&</strong> <span class="text-dark dark:text-white">Web Designer</span></h2>
+                    <p class="mb-10 font-medium text-slate-400 leading-relaxed">I'am beginner web developer, <span class="text-dark font-bold dark:text-white">let's join with me !</span> </p>
                     <a href="#" class="text-base font-semibold text-white py-3 px-8 bg-primary rounded-full hover:shadow-lg hover:opacity-80 duration-300 ease-in-out sm:mb-20">Contact Me</a>
                 </div>
                 <!-- kiri end -->
                 <!-- kanan start -->
                 <div class="w-full self-end px-4 lg:w-1/2 lg:px-20">
                     <div class="mt-10 relative">
-                        <img src="dist/img/foto.png" alt="Murtaki" class="max-w-full mx-auto">
-                        <span class="absolute lg:bottom-2 -bottom-0 -z-10 left-1/2 -translate-x-1/2 md:scale-125 lg:scale-150">
-                            <svg width="410" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <img src="dist/img/foto.png" alt="Murtaki" class="max-w-full mx-auto relative z-10">
+                        <span class="absolute lg:bottom-2 -bottom-0  left-1/2 -translate-x-1/2 md:scale-125 lg:scale-150 ">
+                            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" >
                                 <path fill="rgb(20 184 166)"
                                     d="M52.6,-21.2C57.9,-1,44.7,21.1,25,35.7C5.4,50.2,-20.6,57.2,-39.2,45.7C-57.8,34.1,-69,4,-61.3,-19.7C-53.5,-43.4,-26.7,-60.8,-1.5,-60.3C23.7,-59.8,47.4,-41.4,52.6,-21.2Z"
                                     transform="translate(100 100) scale(1.1)" />
@@ -83,18 +102,18 @@
     </section>
     <!-- hero end -->
     <!-- about start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-sky-950">
         <div class="container">
             <div class="flex flex-wrap">
                 <!-- kiri -->
                 <div class="w-full px-4 mb-10 lg:w-1/2 ">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">About Me 👨‍🎓</h4>
-                    <h2 class="font-bold text-dark text-2xl mb-5 max-w-xl lg:text-4xl">I want to tell you <span class="text-primary mb-10">about me </span></h2>
+                    <h2 class="font-bold text-dark text-2xl mb-5 max-w-xl lg:text-4xl dark:text-white">I want to tell you <span class="text-primary mb-10">about me </span></h2>
                     <p align="justify" class="font-medium text-base text-secondary lg:text-lg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam eos consequatur magnam maxime iure voluptatum optio nostrum, ipsa iusto minima.</p>
                 </div>
                 <!-- kanan -->
                 <div class="w-full px-4 lg:w-1/2">
-                    <h3 class="font-semibold text-dark text-1xl mb-4 lg:text-3xl lg:pt-10">Let's join with in <span class="text-primary">social media !</span></h3>
+                    <h3 class="font-semibold text-dark text-1xl mb-4 lg:text-3xl lg:pt-10 dark:text-white">Let's join with me in <span class="text-primary">social media !</span></h3>
                     <p align="justify" class="font-medium text-secondary mb-6 text-base lg:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, eos unde nam accusamus vero reprehenderit!</p>
                     <div class="flex items-center">
                         <!-- Tiktok start-->
@@ -138,19 +157,19 @@
     </section>
     <!-- about end -->
     <!-- Project Start -->
-    <section id="project" class="pt-36 pb-16 bg-slate-200">
+    <section id="project" class="pt-36 pb-16 bg-slate-200 dark:bg-dark">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h3 class="font-semibold text-primary mb-3 uppercase">My Projects</h3>
-                    <h1 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">New Projects</h1>
+                    <h1 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">New Projects</h1>
                     <p align="justify" class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum corrupti illo perferendis, velit explicabo deserunt non recusandae nihil praesentium sapiente!</p>
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center">
                 <!-- Project 1 -->
                 <div class="mb-10 p-4 md:w-1/2">
-                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2">Portfolio with tailwindcss</h5>
+                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2 dark:text-white">Portfolio with tailwindcss</h5>
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="dist/img/p1.png" alt="" width="w-full">
                     </div>
@@ -160,7 +179,7 @@
                 </div>
                 <!-- Project 2 -->
                 <div class="mb-10 p-4 md:w-1/2">
-                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2">Website Postinger with Laravel 9</h5>
+                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2 dark:text-white">Website Postinger with Laravel 9</h5>
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="dist/img/p2.png" alt="" width="w-full">
                     </div>
@@ -170,7 +189,7 @@
                 </div>
                 <!-- Project 3 -->
                 <div class="mb-10 p-4 md:w-1/2">
-                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2">Website App with Laravel 8</h5>
+                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2 dark:text-white">Website App with Laravel 8</h5>
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="dist/img/p3.png" alt="" width="w-full">
                     </div>
@@ -180,7 +199,7 @@
                 </div>
                 <!-- Project 4 -->
                 <div class="mb-10 p-4 md:w-1/2">
-                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2">Admin Dashboard with Laravel 9</h5>
+                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2 dark:text-white">Admin Dashboard with Laravel 9</h5>
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="dist/img/p4.png" alt="" width="w-full">
                     </div>
@@ -190,7 +209,7 @@
                 </div>
                 <!-- project 5 -->
                 <div class="mb-10 p-4 md:w-1/2">
-                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2">WebApp scanner QRcode student licensing with PHP & MySql</h5>
+                    <h5 class="font-semibold text-lg text-dark mt-5 mb-2dark:text-white ">WebApp scanner QRcode student licensing with PHP & MySql</h5>
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="dist/img/p5.png" alt="" width="w-full">
                     </div>
@@ -254,12 +273,12 @@
     <!-- Calients End -->
 
     <!-- Blog start -->
-    <section id="blog" class="pt-36 pb-32 bg-slate-100">
+    <section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h3 class="font-semibold text-primary mb-3 uppercase">My Blogs</h3>
-                    <h1 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">New Blogs</h1>
+                    <h1 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Blogs</h1>
                     <p align="justify" class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque aut corrupti ab.</p>
                 </div>
                 <div class="flex flex-wrap">
@@ -311,12 +330,12 @@
     </section>
     <!-- Blog end -->
     <!-- Contact start -->
-   <section id="contact" class="pt-36 pb-32">
+   <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
     <div class="container">
         <div class="w-full px-4">
             <div class="max-w-xl mx-auto text-center mb-16">
                 <h3 class="font-semibold text-primary mb-3 uppercase">Contact Person</h3>
-                <h1 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">Contact Me !</h1>
+                <h1 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Contact Me !</h1>
                 <p align="justify" class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Atque aut corrupti ab.</p>
             </div>
@@ -324,16 +343,16 @@
         <form action="">
             <div class="w-full lg:w-2/3 lg:mx-auto">
             <div class="w-full px-4 mb-8">
-                <label for="name" class="text-base font-bold text-primary">Fullname</label>
+                <label for="name" class="text-base font-bold text-primary">Your Name</label>
                 <input type="text" id="name" class="w-full bg-slate-200 text-dark p-3 rounded-md shadow-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
             </div>
             <div class="w-full px-4 mb-8">
-                <label for="email" class="text-base font-bold text-primary">Email</label>
+                <label for="email" class="text-base font-bold text-primary">Email Address</label>
                 <input type="text" id="name"
                     class="w-full bg-slate-200 text-dark p-3 rounded-md shadow-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
             </div>
             <div class="w-full px-4 mb-8">
-                <label for="name" class="text-base font-bold text-primary">Pesann</label>
+                <label for="name" class="text-base font-bold text-primary">Create Something</label>
                 <textarea type="text" id="pesan"
                     class="w-full bg-slate-200 text-dark p-3 rounded-md shadow-md focus:outline-none focus:ring-primary h-32 focus:ring-1 focus:border-primary"></textarea>
             </div>
@@ -346,7 +365,7 @@
    </section>
     <!-- Contac End -->
     <!-- Footer start -->
-    <footer class="bg-dark pt-24 pb-12">
+    <footer class="bg-dark pt-24 pb-12 dark:bg-sky-950">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/2   ">
@@ -414,6 +433,15 @@
         </div>
     </footer>
     <!-- Footer end -->
+    <!-- backto top start-->
+    <a href="#home" id="gotop" class=" fixed z-[9999] h-14 w-14  p-4 justify-center items-center font-extrabold text-white hidden  rounded-full bg-primary bottom-7 right-5 shadow-lg hover:animate-bounce">
+        <svg xmlns="http://www.w3.org/2000/svg" class="fill-current"  height="1em"
+            viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+                d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+        </svg>
+    </a>
+    <!-- Back to top end -->
 <!-- js -->
 <script src="dist/js/script.js"></script>
 </body>

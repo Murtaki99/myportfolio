@@ -5,14 +5,29 @@
 body{
     font-family: Inter, Helvetica, sans-serif;
 }
+/* .animasi{
+background-color: black;
+  color: white;
+  font-family: sans-serif;
+  background-image:
+    radial-gradient(white, rgba(255, 255, 255, .2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255, 255, 255, .15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255, 255, 255, .1) 2px, transparent 40px),
+    radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  margin-top: 0px;
+  animation: bgScroll 20s linear infinite;
+} */
+
 .nav-fixed{
-    @apply fixed z-[9999] bg-white bg-opacity-70;
+    @apply fixed z-[9999] bg-white bg-opacity-50 backdrop:backdrop-blur-sm dark:bg-dark dark:bg-opacity-40;
     backdrop-filter: blur(5px);
     box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.3);
 }
 
 .humb-line{
-    @apply w-[30px] h-[2px] my-2 block bg-dark;
+    @apply w-[30px] h-[2px] my-2 block bg-dark dark:bg-white;
 }
 
 .humb-line-active > span:nth-child(1){
@@ -26,3 +41,9 @@ body{
 .humb-line-active > span:nth-child(3){
     @apply -rotate-45;
 }
+
+#dark-toggle:checked ~ label div.toggle-circle{
+@apply translate-x-3
+}
+
+/* Animation */
