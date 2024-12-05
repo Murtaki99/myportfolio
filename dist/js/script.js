@@ -51,6 +51,59 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
   darktoggle.checked =true;
 }
 
+// Crousal
+document.querySelectorAll('.carousel').forEach(carousel => {
+    const slides = carousel.querySelector('.carousel-slides');
+    const slideItems = carousel.querySelectorAll('.carousel-item');
+    const prevButton = carousel.querySelector('.prev-button');
+    const nextButton = carousel.querySelector('.next-button');
+    const totalSlides = slideItems.length;
+    const slideWidth = 100; // Slide width in percentage
+
+    let isAnimating = false;
+    slides.style.transform = `translateX(-${slideWidth}%)`;
+
+    // Function to move to the next slide
+    function moveToNextSlide() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        slides.style.transition = 'transform 2s ease';
+        slides.style.transform = `translateX(-${slideWidth * 2}%)`;
+
+        slides.addEventListener('transitionend', () => {
+            slides.style.transition = 'none';
+            slides.appendChild(slides.firstElementChild); // Move first slide to the end
+            slides.style.transform = `translateX(-${slideWidth}%)`;
+            isAnimating = false;
+        }, { once: true });
+    }
+
+    // Function to move to the previous slide
+    function moveToPrevSlide() {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        slides.style.transition = 'none';
+        slides.prepend(slides.lastElementChild); // Move last slide to the beginning
+        slides.style.transform = `translateX(-${slideWidth * 2}%)`;
+
+        setTimeout(() => {
+            slides.style.transition = 'transform 2s ease';
+            slides.style.transform = `translateX(-${slideWidth}%)`;
+            slides.addEventListener('transitionend', () => {
+                isAnimating = false;
+            }, { once: true });
+        });
+    }
+
+    // Button listeners
+    nextButton.addEventListener('click', moveToNextSlide);
+    prevButton.addEventListener('click', moveToPrevSlide);
+
+    // Autoplay (optional)
+    // setInterval(moveToNextSlide, 5000);
+});
 
 
 
